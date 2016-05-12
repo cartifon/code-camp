@@ -54,7 +54,7 @@ console.log('Expected 1, got ',getIndexToIns([40, 60], 50));
 console.log('Expected 2, got ',getIndexToIns([10, 20, 30, 40, 50], 30));
 console.log('Expected 3, got ',getIndexToIns([2, 5, 10], 15));
 */
-
+/*
 // Caesars Cipher
 function rot13(str) { // LBH QVQ VG!
     var pos = 0;
@@ -73,3 +73,4 @@ function rot13(str) { // LBH QVQ VG!
 
 // Change the inputs below to test
 console.log(rot13("SERR CVMMN!"));
+*/

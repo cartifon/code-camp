@@ -1,0 +1,70 @@
+var quotes = [{
+    "msg": "I see dead people.",
+    "author": "The Sixth Sense"
+}, {
+    "msg": "The optimist proclaims that we live in the best of all possible worlds, and the pessimist fears this is true.",
+    "author": "James Branch Cabell"
+}, {
+    "msg": "Greed, for lack of a better word, is good.",
+    "author": "Wall Street"
+}, {
+    "msg": "Maybe this world is another planet's Hell.",
+    "author": "Aldous Huxley"
+}, {
+    "msg": "Talent does what it can; genius does what it must.",
+    "author": "Edward George Bulwer-Lytton"
+}, {
+    "msg": "I am ready to meet my Maker. Whether my Maker is prepared for the great ordeal of meeting me is another matter.",
+    "author": "Sir Winston Churchill"
+}, {
+    "msg": "Whenever I climb I am followed by a dog called 'Ego'.",
+    "author": "Friedrich Nietzsche"
+}, {
+    "msg": "Political correctness is tyranny with manners.",
+    "author": "Charlton Heston"
+}, {
+    "msg": "Many wealthy people are little more than janitors of their possessions.",
+    "author": "Frank Lloyd Wright"
+}, {
+    "msg": "The use of COBOL cripples the mind; its teaching should, therefore, be regarded as a criminal offense.",
+    "author": "Edsgar Dijkstra"
+}, {
+    "msg": "But at my back I always hear Time's winged chariot hurrying near.",
+    "author": "Andrew Marvell"
+}, {
+    "msg": "The only difference between me and a madman is that I'm not mad.",
+    "author": "Salvador Dali"
+}, {
+    "msg": "If a man does his best, what else is there?",
+    "author": "General George S. Patton"
+}, {
+    "msg": "If you build it, he will come.",
+    "author": "Field of Dreams"
+}, {
+    "msg": "You may not be interested in war, but war is interested in you.",
+    "author": "Leon Trotsky"
+}, {
+    "msg": "Badges? We ain't got no badges! We don't need no badges! I don't have to show you any stinking badges!",
+    "author": "The Treasure of the Sierra Mad"
+}, {
+    "msg": "The power of accurate observation is frequently called cynicism by those who don't have it.",
+    "author": "George Bernard Shaw"
+}, {
+    "msg": "Problems worthy of attack prove their worth by fighting back.",
+    "author": "Paul Erdos"
+}, {
+    "msg": "Try to learn something about everything and everything about something.",
+    "author": "Thomas Henry Huxley"
+}, {
+    "msg": "The true measure of a man is how he treats someone who can do him absolutely no good.",
+    "author": "Samuel Johnson"
+}, {
+    "msg": "Mother of mercy, is this the end of Rico?",
+    "author": "Little Caesar"
+}, {
+    "msg": "Forget it, Jake, it's Chinatown.",
+    "author": "Chinatown"
+}, {
+    "msg": "We are all atheists about most of the gods humanity has ever believed in. Some of us just go one god further.",
+    "author": "Richard Dawkins"
+}];
