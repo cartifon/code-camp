@@ -1,4 +1,5 @@
 'use strict';
+/* jshint ignore: start */
 
 /*
 function keep(value) {
@@ -93,19 +94,72 @@ console.log(rot13("SERR CVMMN!"));
 
 // Diff Two Arrays
 
-function diffArray(arr1, arr2) {
-    var newArr = [];
-    arr1.forEach(function (arr) {
-        if (arr2.indexOf(arr) < 0) {
-            newArr.push(arr);
+// function diffArray(arr1, arr2) {
+//     var newArr = [];
+//     arr1.forEach(function (arr) {
+//         if (arr2.indexOf(arr) < 0) {
+//             newArr.push(arr);
+//         }
+//     });
+//     arr2.forEach(function (arr) {
+//         if (arr1.indexOf(arr) < 0) {
+//             newArr.push(arr);
+//         }
+//     });
+//     return newArr;
+// }
+//
+// console.log(diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]));
+
+// Roman Numeral Converter
+function convertToRoman(num) {
+    var ret = '';
+    while (num > 0) {
+        console.log(num);
+        if (num >= 1000) {
+            ret += 'M';
+            num -= 1000;
+        } else if (num >= 900) {
+            ret += 'CM';
+            num -= 900;
+        } else if (num >= 500) {
+            ret += 'D';
+            num -= 500;
+        } else if (num >= 400) {
+            ret += 'CD';
+            num -= 400;
+        } else if (num >= 100) {
+            ret += 'C';
+            num -= 100;
+        } else if (num >= 90) {
+            ret += 'XC';
+            num -= 90;
+        } else if (num >= 50) {
+            ret += 'L';
+            num -= 50;
+        } else if (num >= 40) {
+            ret += 'XL';
+            num -= 40;
+        } else if (num >= 10) {
+            ret += 'X';
+            num -= 10;
+        } else if (num >= 9) {
+            ret += 'IX';
+            num -= 9;
+        } else if (num >= 5) {
+            ret += 'V';
+            num -= 5;
+        } else if (num >= 4) {
+            num -= 4;
+            ret += 'IV';
+        } else if (num >= 1) {
+            num -= 1;
+            ret += 'I';
         }
-    });
-    arr2.forEach(function (arr) {
-        if (arr1.indexOf(arr) < 0) {
-            newArr.push(arr);
-        }
-    });
-    return newArr;
+    }
+    return ret;
 }
 
-console.log(diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]));
+console.log(convertToRoman(68));
+
+/* jshint ignore: end */
