@@ -1,3 +1,5 @@
+'use strict';
+
 /*
 function keep(value) {
     return value;
@@ -74,3 +76,17 @@ function rot13(str) { // LBH QVQ VG!
 // Change the inputs below to test
 console.log(rot13("SERR CVMMN!"));
 */
+
+// Sum All Numbers in a Range
+
+function sumAll(arr) {
+    var init = Math.min(arr[0], arr[1]);
+    var end = Math.max(arr[0], arr[1]);
+    var ret = 0;
+    for (var i = init; i <= end; i += 1) {
+        ret += i;
+    }
+    return ret;
+}
+
+console.log(sumAll([10, 5]));
