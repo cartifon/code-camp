@@ -202,17 +202,26 @@ console.log(rot13("SERR CVMMN!"));
 
 // Search and Replace
 
-function myReplace(str, before, after) {
-    var b1 = before.charAt(0);
-    var a1 = after.charAt(0);
-    if (b1 !== before.charAt(0).toLowerCase()) {
-        after = after.split('');
-        after[0] = after[0].toUpperCase();
-        after = after.join('');
-    }
-    return str.replace(before, after);
+// function myReplace(str, before, after) {
+//     var b1 = before.charAt(0);
+//     var a1 = after.charAt(0);
+//     if (b1 !== before.charAt(0).toLowerCase()) {
+//         after = after.split('');
+//         after[0] = after[0].toUpperCase();
+//         after = after.join('');
+//     }
+//     return str.replace(before, after);
+// }
+//
+// console.log(myReplace('A quick brown fox Jumped over the lazy dog', 'Jumped', 'leaped'));
+
+// Pig Latin
+
+function translatePigLatin(str) {
+  return str;
 }
 
-console.log(myReplace('A quick brown fox Jumped over the lazy dog', 'Jumped', 'leaped'));
+translatePigLatin("consonant");
+
 
 /* jshint ignore: end */
