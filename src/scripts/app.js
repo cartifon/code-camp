@@ -112,54 +112,91 @@ console.log(rot13("SERR CVMMN!"));
 // console.log(diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]));
 
 // Roman Numeral Converter
-function convertToRoman(num) {
-    var ret = '';
-    while (num > 0) {
-        console.log(num);
-        if (num >= 1000) {
-            ret += 'M';
-            num -= 1000;
-        } else if (num >= 900) {
-            ret += 'CM';
-            num -= 900;
-        } else if (num >= 500) {
-            ret += 'D';
-            num -= 500;
-        } else if (num >= 400) {
-            ret += 'CD';
-            num -= 400;
-        } else if (num >= 100) {
-            ret += 'C';
-            num -= 100;
-        } else if (num >= 90) {
-            ret += 'XC';
-            num -= 90;
-        } else if (num >= 50) {
-            ret += 'L';
-            num -= 50;
-        } else if (num >= 40) {
-            ret += 'XL';
-            num -= 40;
-        } else if (num >= 10) {
-            ret += 'X';
-            num -= 10;
-        } else if (num >= 9) {
-            ret += 'IX';
-            num -= 9;
-        } else if (num >= 5) {
-            ret += 'V';
-            num -= 5;
-        } else if (num >= 4) {
-            num -= 4;
-            ret += 'IV';
-        } else if (num >= 1) {
-            num -= 1;
-            ret += 'I';
+// function convertToRoman(num) {
+//     var ret = '';
+//     while (num > 0) {
+//         console.log(num);
+//         if (num >= 1000) {
+//             ret += 'M';
+//             num -= 1000;
+//         } else if (num >= 900) {
+//             ret += 'CM';
+//             num -= 900;
+//         } else if (num >= 500) {
+//             ret += 'D';
+//             num -= 500;
+//         } else if (num >= 400) {
+//             ret += 'CD';
+//             num -= 400;
+//         } else if (num >= 100) {
+//             ret += 'C';
+//             num -= 100;
+//         } else if (num >= 90) {
+//             ret += 'XC';
+//             num -= 90;
+//         } else if (num >= 50) {
+//             ret += 'L';
+//             num -= 50;
+//         } else if (num >= 40) {
+//             ret += 'XL';
+//             num -= 40;
+//         } else if (num >= 10) {
+//             ret += 'X';
+//             num -= 10;
+//         } else if (num >= 9) {
+//             ret += 'IX';
+//             num -= 9;
+//         } else if (num >= 5) {
+//             ret += 'V';
+//             num -= 5;
+//         } else if (num >= 4) {
+//             num -= 4;
+//             ret += 'IV';
+//         } else if (num >= 1) {
+//             num -= 1;
+//             ret += 'I';
+//         }
+//     }
+//     return ret;
+// }
+//
+// console.log(convertToRoman(68));
+
+// Wherefore art thou
+
+function whatIsInAName(collection, source) {
+    // What's in a name?
+    var arr = [];
+    // Only change code below this line
+    var isThere = false;
+    collection.forEach(function (value) {
+        isThere = true;
+        Object.keys(source).forEach(function (data) {
+            if (value[data] !== source[data]) {
+                isThere = false;
+            }
+        });
+        if (isThere) {
+            arr.push(value);
         }
-    }
-    return ret;
+        // console.log(Object.keys(value));
+    });
+    // Only change code above this line
+    return arr;
 }
 
-console.log(convertToRoman(68));
-
+console.log(whatIsInAName([
+    {
+        first: 'Romeo',
+        last: 'Montague'
+    }, {
+        first: 'Mercutio',
+        last: null
+    }, {
+        first: 'Tybalt',
+        last: 'Capulet'
+    }], {
+        last: 'Capulet'
+    }
+));
 /* jshint ignore: end */
