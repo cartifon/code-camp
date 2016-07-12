@@ -164,39 +164,55 @@ console.log(rot13("SERR CVMMN!"));
 
 // Wherefore art thou
 
-function whatIsInAName(collection, source) {
-    // What's in a name?
-    var arr = [];
-    // Only change code below this line
-    var isThere = false;
-    collection.forEach(function (value) {
-        isThere = true;
-        Object.keys(source).forEach(function (data) {
-            if (value[data] !== source[data]) {
-                isThere = false;
-            }
-        });
-        if (isThere) {
-            arr.push(value);
-        }
-        // console.log(Object.keys(value));
-    });
-    // Only change code above this line
-    return arr;
+// function whatIsInAName(collection, source) {
+//     // What's in a name?
+//     var arr = [];
+//     // Only change code below this line
+//     var isThere = false;
+//     collection.forEach(function (value) {
+//         isThere = true;
+//         Object.keys(source).forEach(function (data) {
+//             if (value[data] !== source[data]) {
+//                 isThere = false;
+//             }
+//         });
+//         if (isThere) {
+//             arr.push(value);
+//         }
+//         // console.log(Object.keys(value));
+//     });
+//     // Only change code above this line
+//     return arr;
+// }
+//
+// console.log(whatIsInAName([
+//     {
+//         first: 'Romeo',
+//         last: 'Montague'
+//     }, {
+//         first: 'Mercutio',
+//         last: null
+//     }, {
+//         first: 'Tybalt',
+//         last: 'Capulet'
+//     }], {
+//         last: 'Capulet'
+//     }
+// ));
+
+// Search and Replace
+
+function myReplace(str, before, after) {
+    var b1 = before.charAt(0);
+    var a1 = after.charAt(0);
+    if (b1 !== before.charAt(0).toLowerCase()) {
+        after = after.split('');
+        after[0] = after[0].toUpperCase();
+        after = after.join('');
+    }
+    return str.replace(before, after);
 }
 
-console.log(whatIsInAName([
-    {
-        first: 'Romeo',
-        last: 'Montague'
-    }, {
-        first: 'Mercutio',
-        last: null
-    }, {
-        first: 'Tybalt',
-        last: 'Capulet'
-    }], {
-        last: 'Capulet'
-    }
-));
+console.log(myReplace('A quick brown fox Jumped over the lazy dog', 'Jumped', 'leaped'));
+
 /* jshint ignore: end */
