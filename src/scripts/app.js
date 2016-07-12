@@ -79,14 +79,33 @@ console.log(rot13("SERR CVMMN!"));
 
 // Sum All Numbers in a Range
 
-function sumAll(arr) {
-    var init = Math.min(arr[0], arr[1]);
-    var end = Math.max(arr[0], arr[1]);
-    var ret = 0;
-    for (var i = init; i <= end; i += 1) {
-        ret += i;
-    }
-    return ret;
+// function sumAll(arr) {
+//     var init = Math.min(arr[0], arr[1]);
+//     var end = Math.max(arr[0], arr[1]);
+//     var ret = 0;
+//     for (var i = init; i <= end; i += 1) {
+//         ret += i;
+//     }
+//     return ret;
+// }
+//
+// console.log(sumAll([10, 5]));
+
+// Diff Two Arrays
+
+function diffArray(arr1, arr2) {
+    var newArr = [];
+    arr1.forEach(function (arr) {
+        if (arr2.indexOf(arr) < 0) {
+            newArr.push(arr);
+        }
+    });
+    arr2.forEach(function (arr) {
+        if (arr1.indexOf(arr) < 0) {
+            newArr.push(arr);
+        }
+    });
+    return newArr;
 }
 
-console.log(sumAll([10, 5]));
+console.log(diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]));
