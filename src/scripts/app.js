@@ -338,22 +338,35 @@ console.log(rot13("SERR CVMMN!"));
 
 // Convert HTML Entities
 
-function convertHTML(str) {
-    // &colon;&rpar;
-    var regex = new RegExp('&', 'g');
-    str = str.replace(regex, '&​amp;');
-    regex = new RegExp('<', 'g');
-    str = str.replace(regex, '&​lt;');
-    regex = new RegExp('>', 'g');
-    str = str.replace(regex, '&gt;');
-    regex = new RegExp('"', 'g');
-    str = str.replace(regex, '&​quot;');
-    regex = new RegExp('\'', 'g');
-    str = str.replace(regex, '&​apos;');
-    return str;
+// function convertHTML(str) {
+//     // &colon;&rpar;
+//     var regex = new RegExp('&', 'g');
+//     str = str.replace(regex, '&​amp;');
+//     regex = new RegExp('<', 'g');
+//     str = str.replace(regex, '&​lt;');
+//     regex = new RegExp('>', 'g');
+//     str = str.replace(regex, '&gt;');
+//     regex = new RegExp('"', 'g');
+//     str = str.replace(regex, '&​quot;');
+//     regex = new RegExp('\'', 'g');
+//     str = str.replace(regex, '&​apos;');
+//     return str;
+// }
+//
+// console.log('Should be: Dolce &​amp; Gabbana', 'got: ' + convertHTML("Dolce & Gabbana"));
+// console.log('Should be: Hamburgers &​lt; Pizza &​lt; Tacos', 'got: ' + convertHTML("Hamburgers < Pizza < Tacos"));
+
+// Spinal Tap Case
+function spinalCase(str) {
+    // "It's such a fine line between stupid, and clever."
+    // --David St. Hubbins
+    var regex = new RegExp('[A-Z]', 'g');
+
+    regex = new RegExp(' |_', 'g');
+    str = str.trim().replace(regex, '-');
+    return str.toLowerCase();
 }
 
-console.log('Should be: Dolce &​amp; Gabbana', 'got: ' + convertHTML("Dolce & Gabbana"));
-console.log('Should be: Hamburgers &​lt; Pizza &​lt; Tacos', 'got: ' + convertHTML("Hamburgers < Pizza < Tacos"));
-
+console.log('Should be: this-is-spinal-tap', 'got: ' + spinalCase('thisIsSpinalTap'));
+console.log('Should be: the-andy-griffith-show', 'got: ' + spinalCase('The_Andy_Griffith_Show'));
 /* jshint ignore: end */
