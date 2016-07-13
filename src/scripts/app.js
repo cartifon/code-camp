@@ -321,18 +321,39 @@ console.log(rot13("SERR CVMMN!"));
 
 // Sonic Boom
 
-function uniteUnique() {
-    var arr = [];
-    for (var i = 0; i < arguments.length; i++) {
-        var arr2 = arguments[i];
-        arr2.forEach(function (value) {
-            if (arr.indexOf(value) < 0) {
-                arr.push(value)
-            }
-        });
-    }
-    return arr;
+// function uniteUnique() {
+//     var arr = [];
+//     for (var i = 0; i < arguments.length; i++) {
+//         var arr2 = arguments[i];
+//         arr2.forEach(function (value) {
+//             if (arr.indexOf(value) < 0) {
+//                 arr.push(value)
+//             }
+//         });
+//     }
+//     return arr;
+// }
+//
+// console.log('Should be: [1, 3, 2, 5, 4]', 'got: ' + uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]));
+
+// Convert HTML Entities
+
+function convertHTML(str) {
+    // &colon;&rpar;
+    var regex = new RegExp('&', 'g');
+    str = str.replace(regex, '&​amp;');
+    regex = new RegExp('<', 'g');
+    str = str.replace(regex, '&​lt;');
+    regex = new RegExp('>', 'g');
+    str = str.replace(regex, '&gt;');
+    regex = new RegExp('"', 'g');
+    str = str.replace(regex, '&​quot;');
+    regex = new RegExp('\'', 'g');
+    str = str.replace(regex, '&​apos;');
+    return str;
 }
 
-console.log('Should be: [1, 3, 2, 5, 4]', 'got: ' + uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]));
+console.log('Should be: Dolce &​amp; Gabbana', 'got: ' + convertHTML("Dolce & Gabbana"));
+console.log('Should be: Hamburgers &​lt; Pizza &​lt; Tacos', 'got: ' + convertHTML("Hamburgers < Pizza < Tacos"));
+
 /* jshint ignore: end */
