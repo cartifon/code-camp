@@ -286,4 +286,25 @@ console.log(rot13("SERR CVMMN!"));
 // console.log('Should be: [["A","T"],["T","A"],["C","G"],["G","C"],["A","T"]]',
 //     '\ngot: ' + pairElement('ATCGA'));
 
+// Missing letters
+
+// function fearNotLetter(str) {
+//     let arr = str.split('');
+//     var pos = arr[0].charCodeAt(0);
+//     var ret = undefined;
+//     arr.forEach(function (value) {
+//         if (pos === value.charCodeAt(0)) {
+//             pos += 1;
+//         } else {
+//             ret = String.fromCharCode(pos);
+//         }
+//     });
+//     return ret;
+// }
+//
+// console.log('Should be: d', 'got: ' + fearNotLetter('abce'));
+// console.log('Should be: i', 'got: ' + fearNotLetter('abcdefghjklmno'));
+// console.log('Should be: undefined', 'got: ' + fearNotLetter('bcd'));
+// console.log('Should be: undefined', 'got: ' + fearNotLetter('yz'));
+
 /* jshint ignore: end */
