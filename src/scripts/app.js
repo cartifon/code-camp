@@ -318,4 +318,21 @@ console.log(rot13("SERR CVMMN!"));
 // console.log('Should be: true', 'got: ' + booWho(false));
 // console.log('Should be: false', 'got: ' + booWho([1, 2, 3]));
 // console.log('Should be: false', 'got: ' + booWho(1));
+
+// Sonic Boom
+
+function uniteUnique() {
+    var arr = [];
+    for (var i = 0; i < arguments.length; i++) {
+        var arr2 = arguments[i];
+        arr2.forEach(function (value) {
+            if (arr.indexOf(value) < 0) {
+                arr.push(value)
+            }
+        });
+    }
+    return arr;
+}
+
+console.log('Should be: [1, 3, 2, 5, 4]', 'got: ' + uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]));
 /* jshint ignore: end */
