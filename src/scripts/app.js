@@ -254,4 +254,36 @@ console.log(rot13("SERR CVMMN!"));
 // console.log('Should be: algorithmway', 'got: ' + translatePigLatin('algorithm'));
 // console.log('Should be: eightway', 'got: ' + translatePigLatin('eight'));
 
+// DNA Pairing
+
+// function pairElement(str) {
+//     var arr = str.split('');
+//     var ret = [];
+//     arr.forEach(function (elem) {
+//         let pair = [elem];
+//         switch (elem) {
+//             case 'A':
+//                 pair.push('T');
+//                 break;
+//             case 'T':
+//                 pair.push('A');
+//                 break;
+//             case 'C':
+//                 pair.push('G');
+//                 break;
+//             case 'G':
+//                 pair.push('C');
+//                 break;
+//             default:
+//                 break;
+//         }
+//         console.log(pair);
+//         ret.push(pair);
+//     });
+//     return ret;
+// }
+//
+// console.log('Should be: [["A","T"],["T","A"],["C","G"],["G","C"],["A","T"]]',
+//     '\ngot: ' + pairElement('ATCGA'));
+
 /* jshint ignore: end */
