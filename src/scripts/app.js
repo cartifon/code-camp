@@ -218,10 +218,41 @@ console.log(rot13("SERR CVMMN!"));
 // Pig Latin
 
 function translatePigLatin(str) {
-  return str;
+    var notIn = 'aeiou'.split('');
+    var arr = str.split('');
+    var isVowel = false;
+    var isCons = false;
+    var gotCons = false;
+    while (true) {
+        if (notIn.indexOf(str.charAt(0)) > -1) {
+            isVowel = true;
+        } else {
+            isCons = true;
+            gotCons = true;
+        }
+
+        if (isVowel && gotCons) {
+            str += 'ay';
+            break;
+        }
+        if (isVowel && !gotCons) {
+            str += 'way';
+            break;
+        } else {
+            str = str.substr(1) + arr[0];
+            arr[0] = '';
+            arr = arr.join('').split('');
+        }
+        isVowel = false;
+        isCons = false;
+    }
+    return str;
 }
 
-translatePigLatin("consonant");
-
+console.log('Should be: aliforniacay', 'got: ' + translatePigLatin('california'));
+console.log('Should be: aragraphspay', 'got: ' + translatePigLatin('paragraphs'));
+console.log('Should be: oveglay', 'got: ' + translatePigLatin('glove'));
+console.log('Should be: algorithmway', 'got: ' + translatePigLatin('algorithm'));
+console.log('Should be: eightway', 'got: ' + translatePigLatin('eight'));
 
 /* jshint ignore: end */
