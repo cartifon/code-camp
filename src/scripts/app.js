@@ -307,4 +307,15 @@ console.log(rot13("SERR CVMMN!"));
 // console.log('Should be: undefined', 'got: ' + fearNotLetter('bcd'));
 // console.log('Should be: undefined', 'got: ' + fearNotLetter('yz'));
 
+// Boo who
+
+// function booWho(bool) {
+//     // What is the new fad diet for ghost developers? The Boolean.
+//     return bool === true || bool === false;
+// }
+//
+// console.log('Should be: true', 'got: ' + booWho(true));
+// console.log('Should be: true', 'got: ' + booWho(false));
+// console.log('Should be: false', 'got: ' + booWho([1, 2, 3]));
+// console.log('Should be: false', 'got: ' + booWho(1));
 /* jshint ignore: end */
