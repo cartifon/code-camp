@@ -357,16 +357,29 @@ console.log(rot13("SERR CVMMN!"));
 // console.log('Should be: Hamburgers &​lt; Pizza &​lt; Tacos', 'got: ' + convertHTML("Hamburgers < Pizza < Tacos"));
 
 // Spinal Tap Case
-function spinalCase(str) {
-    // "It's such a fine line between stupid, and clever."
-    // --David St. Hubbins
-    var regex = new RegExp('[A-Z]', 'g');
+// function spinalCase(str) {
+//     // "It's such a fine line between stupid, and clever."
+//     // --David St. Hubbins
+//     var regex = new RegExp('[^a-zA-Z]', 'g');
+//     str = str.replace(regex, ' ');
+//     regex = new RegExp('[A-Z]', 'g');
+//     while (str.search(regex) >= 0) {
+//         str = str.substr(0, str.search(regex)) +
+//         ' ' +
+//         str.substr(str.search(regex), 1).toLowerCase() +
+//         str.substr(str.search(regex) + 1);
+//         console.log(str);
+//     }
+//     regex = new RegExp('  ', 'g');
+//     str = str.replace(regex, ' ');
+//
+//     regex = new RegExp(' ', 'g');
+//     str = str.trim().replace(regex, '-');
+//     return str.toLowerCase();
+// }
+//
+// console.log('Should be: this-is-spinal-tap', 'got: ' + spinalCase('thisIsSpinalTap'));
+// console.log('Should be: the-andy-griffith-show', 'got: ' + spinalCase('The_Andy_Griffith_Show'));
+// console.log('Should be: teletubbies-say-eh-oh', 'got: ' + spinalCase('Teletubbies say Eh-oh'));
 
-    regex = new RegExp(' |_', 'g');
-    str = str.trim().replace(regex, '-');
-    return str.toLowerCase();
-}
-
-console.log('Should be: this-is-spinal-tap', 'got: ' + spinalCase('thisIsSpinalTap'));
-console.log('Should be: the-andy-griffith-show', 'got: ' + spinalCase('The_Andy_Griffith_Show'));
 /* jshint ignore: end */
