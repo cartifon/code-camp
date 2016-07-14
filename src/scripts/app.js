@@ -382,4 +382,24 @@ console.log(rot13("SERR CVMMN!"));
 // console.log('Should be: the-andy-griffith-show', 'got: ' + spinalCase('The_Andy_Griffith_Show'));
 // console.log('Should be: teletubbies-say-eh-oh', 'got: ' + spinalCase('Teletubbies say Eh-oh'));
 
+// Sum All Odd Fibonacci Numbers
+
+// function sumFibs(num) {
+//     var value = 0;
+//     var fib = 1;
+//     var aux = 0;
+//     var ret = 0;
+//     while (fib <= num) {
+//         if (fib % 2 !== 0) {
+//             ret += fib;
+//         }
+//         aux = fib;
+//         fib = fib + value;
+//         value = aux;
+//     }
+//     return ret;
+// }
+//
+// console.log('Should be: 1785', 'got: ' + sumFibs(1000));
+
 /* jshint ignore: end */
