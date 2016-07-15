@@ -403,18 +403,18 @@ console.log(rot13("SERR CVMMN!"));
 // console.log('Should be: 1785', 'got: ' + sumFibs(1000));
 
 // Sum All Primes
-// function isPrime(n) {
-//     if (n < 2) {
-//         return false;
-//     }
-//     var q = Math.floor(Math.sqrt(n));
-//     for (var i = 2; i <= q; i++) {
-//         if (n % i == 0) {
-//             return false;
-//         }
-//     }
-//     return true;
-// }
+function isPrime(n) {
+    if (n < 2) {
+        return false;
+    }
+    var q = Math.floor(Math.sqrt(n));
+    for (var i = 2; i <= q; i++) {
+        if (n % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
 //
 // function sumPrimes(num) {
 //     console.log('sumPrimes');
@@ -426,8 +426,95 @@ console.log(rot13("SERR CVMMN!"));
 //     }
 //     return ret;
 // }
-//
+
 // console.log(isPrime(2));
 // console.log('Should be: 73156', 'got: ' + sumPrimes(977));
+
+// Smallest Common Multiple
+
+function getIntersections(a, b) {
+    if (!a || !b) {
+        return [];
+    }
+    var ai = 0,
+        bi = 0;
+    var result = [];
+
+    while (ai < a.length && bi < b.length) {
+        if (a[ai] < b[bi]) {
+            ai++;
+        } else if (a[ai] > b[bi]) {
+            bi++;
+        } else /* they're equal */ {
+            result.push(a[ai]);
+            ai++;
+            bi++;
+        }
+    }
+    return result;
+}
+
+function getPrimeFactors(num) {
+    var ret = [];
+    var temp = 2;
+    while (num > 1) {
+        if (isPrime(temp)) {
+            if (num % temp === 0) {
+                ret.push(temp);
+                num = num / temp;
+            } else {
+                temp++;
+            }
+        } else {
+            temp++;
+        }
+    }
+    return ret;
+}
+
+function GCD(a,b) {
+    var a1 = getPrimeFactors(a);
+    var b1 = getPrimeFactors(b);
+    var intersection = getIntersections(a1, b1);
+    if (intersection.length == 1) {
+        return intersection[0];
+    } else {
+        var ret = 1;
+        intersection.forEach(function (value) {
+            ret *= value;
+        });
+        return ret;
+    }
+}
+function LCM(a,b) {
+    return (a * b) / GCD(a,b);
+}
+
+function getLMC(arr) {
+    if (arr.length === 2) {
+        return LCM(arr[0], arr[1]);
+    } else {
+        var temp = LCM(arr[0], arr[1]);
+        arr = arr.splice(1);
+        arr[0] = temp;
+        return getLMC(arr);
+    }
+}
+
+function smallestCommons(arr) {
+    var max = Math.max(arr[0], arr[1]);
+    var min = Math.min(arr[0], arr[1]);
+    var numbers = [];
+    // getting the pair and odd numbers
+    for (var i = min; i <= max; i++) {
+        numbers.push(i);
+    }
+    return getLMC(numbers);
+}
+
+// console.log('Should be: 60', 'got: ' + smallestCommons([1, 5]));
+// console.log('Should be: 60', 'got: ' + smallestCommons([5, 1]));
+// console.log('Should be: 360360', 'got: ' + smallestCommons([1, 13]));
+// console.log('Should be: 6056820', 'got: ' + smallestCommons([23, 18]));
 
 /* jshint ignore: end */
