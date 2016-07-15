@@ -15,11 +15,10 @@ console.log(bouncer([false, null, 0, NaN, undefined, ""]));
 console.log(bouncer([1, null, NaN, 2, undefined]));
 */
 
-/*
 // Seek and Destroy
 function destroyer(arr) {
     for (var i = 1; i < arguments.length; i++) {
-        if(arr.indexOf(arguments[i]) >= 0) {
+        if (arr.indexOf(arguments[i]) >= 0) {
             arr.splice(arr.indexOf(arguments[i]), 1);
             i--;
         }
@@ -27,9 +26,8 @@ function destroyer(arr) {
     return arr;
 }
 
-console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));
-*/
-/*
+// console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));
+
 // Where do I belong
 
 function getIndexToIns(arr, num) {
@@ -38,33 +36,32 @@ function getIndexToIns(arr, num) {
     });
     var pos = 0;
     for (var i = 0; i < arr.length; i++) {
-        if(arr[i] < num) {
+        if (arr[i] < num) {
             pos = i;
-        } else if(arr[i] === num){
+        } else if (arr[i] === num) {
             pos = i;
-        } else if(arr[i-1] < num){
+        } else if (arr[i - 1] < num) {
             pos = i;
         }
     }
-    if(arr[arr.length -1] <= num) {
+    if (arr[arr.length - 1] <= num) {
         pos = arr.length;
     }
     // Find my place in this sorted array.
     return pos;
 }
 
-console.log('Expected 1, got ',getIndexToIns([40, 60], 50));
-console.log('Expected 2, got ',getIndexToIns([10, 20, 30, 40, 50], 30));
-console.log('Expected 3, got ',getIndexToIns([2, 5, 10], 15));
-*/
-/*
+// console.log('Expected 1, got ',getIndexToIns([40, 60], 50));
+// console.log('Expected 2, got ',getIndexToIns([10, 20, 30, 40, 50], 30));
+// console.log('Expected 3, got ',getIndexToIns([2, 5, 10], 15));
+
 // Caesars Cipher
 function rot13(str) { // LBH QVQ VG!
     var pos = 0;
     var arr = str.split('');
-    var ret = "";
+    var ret = '';
     arr.forEach(function(value) {
-        if(value === ' ' ||  (value.charCodeAt(0) > 90) || ( value.charCodeAt(0) < 64)) {
+        if (value === ' ' || (value.charCodeAt(0) > 90) || (value.charCodeAt(0) < 64)) {
             ret += value;
         } else {
             pos = value.charCodeAt(0) + 13;
@@ -75,115 +72,114 @@ function rot13(str) { // LBH QVQ VG!
 }
 
 // Change the inputs below to test
-console.log(rot13("SERR CVMMN!"));
-*/
+// console.log(rot13("SERR CVMMN!"));
 
 // Sum All Numbers in a Range
 
-// function sumAll(arr) {
-//     var init = Math.min(arr[0], arr[1]);
-//     var end = Math.max(arr[0], arr[1]);
-//     var ret = 0;
-//     for (var i = init; i <= end; i += 1) {
-//         ret += i;
-//     }
-//     return ret;
-// }
+function sumAll(arr) {
+    var init = Math.min(arr[0], arr[1]);
+    var end = Math.max(arr[0], arr[1]);
+    var ret = 0;
+    for (var i = init; i <= end; i += 1) {
+        ret += i;
+    }
+    return ret;
+}
 //
 // console.log(sumAll([10, 5]));
 
 // Diff Two Arrays
 
-// function diffArray(arr1, arr2) {
-//     var newArr = [];
-//     arr1.forEach(function (arr) {
-//         if (arr2.indexOf(arr) < 0) {
-//             newArr.push(arr);
-//         }
-//     });
-//     arr2.forEach(function (arr) {
-//         if (arr1.indexOf(arr) < 0) {
-//             newArr.push(arr);
-//         }
-//     });
-//     return newArr;
-// }
+function diffArray(arr1, arr2) {
+    var newArr = [];
+    arr1.forEach(function(arr) {
+        if (arr2.indexOf(arr) < 0) {
+            newArr.push(arr);
+        }
+    });
+    arr2.forEach(function(arr) {
+        if (arr1.indexOf(arr) < 0) {
+            newArr.push(arr);
+        }
+    });
+    return newArr;
+}
 //
 // console.log(diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]));
 
 // Roman Numeral Converter
-// function convertToRoman(num) {
-//     var ret = '';
-//     while (num > 0) {
-//         console.log(num);
-//         if (num >= 1000) {
-//             ret += 'M';
-//             num -= 1000;
-//         } else if (num >= 900) {
-//             ret += 'CM';
-//             num -= 900;
-//         } else if (num >= 500) {
-//             ret += 'D';
-//             num -= 500;
-//         } else if (num >= 400) {
-//             ret += 'CD';
-//             num -= 400;
-//         } else if (num >= 100) {
-//             ret += 'C';
-//             num -= 100;
-//         } else if (num >= 90) {
-//             ret += 'XC';
-//             num -= 90;
-//         } else if (num >= 50) {
-//             ret += 'L';
-//             num -= 50;
-//         } else if (num >= 40) {
-//             ret += 'XL';
-//             num -= 40;
-//         } else if (num >= 10) {
-//             ret += 'X';
-//             num -= 10;
-//         } else if (num >= 9) {
-//             ret += 'IX';
-//             num -= 9;
-//         } else if (num >= 5) {
-//             ret += 'V';
-//             num -= 5;
-//         } else if (num >= 4) {
-//             num -= 4;
-//             ret += 'IV';
-//         } else if (num >= 1) {
-//             num -= 1;
-//             ret += 'I';
-//         }
-//     }
-//     return ret;
-// }
+function convertToRoman(num) {
+    var ret = '';
+    while (num > 0) {
+        console.log(num);
+        if (num >= 1000) {
+            ret += 'M';
+            num -= 1000;
+        } else if (num >= 900) {
+            ret += 'CM';
+            num -= 900;
+        } else if (num >= 500) {
+            ret += 'D';
+            num -= 500;
+        } else if (num >= 400) {
+            ret += 'CD';
+            num -= 400;
+        } else if (num >= 100) {
+            ret += 'C';
+            num -= 100;
+        } else if (num >= 90) {
+            ret += 'XC';
+            num -= 90;
+        } else if (num >= 50) {
+            ret += 'L';
+            num -= 50;
+        } else if (num >= 40) {
+            ret += 'XL';
+            num -= 40;
+        } else if (num >= 10) {
+            ret += 'X';
+            num -= 10;
+        } else if (num >= 9) {
+            ret += 'IX';
+            num -= 9;
+        } else if (num >= 5) {
+            ret += 'V';
+            num -= 5;
+        } else if (num >= 4) {
+            num -= 4;
+            ret += 'IV';
+        } else if (num >= 1) {
+            num -= 1;
+            ret += 'I';
+        }
+    }
+    return ret;
+}
 //
 // console.log(convertToRoman(68));
 
 // Wherefore art thou
 
-// function whatIsInAName(collection, source) {
-//     // What's in a name?
-//     var arr = [];
-//     // Only change code below this line
-//     var isThere = false;
-//     collection.forEach(function (value) {
-//         isThere = true;
-//         Object.keys(source).forEach(function (data) {
-//             if (value[data] !== source[data]) {
-//                 isThere = false;
-//             }
-//         });
-//         if (isThere) {
-//             arr.push(value);
-//         }
-//         // console.log(Object.keys(value));
-//     });
-//     // Only change code above this line
-//     return arr;
-// }
+function whatIsInAName(collection, source) {
+    // What's in a name?
+    var arr = [];
+    // Only change code below this line
+    var isThere = false;
+    collection.forEach(function(value) {
+        isThere = true;
+        Object.keys(source).forEach(function(data) {
+            if (value[data] !== source[data]) {
+                isThere = false;
+            }
+        });
+        if (isThere) {
+            arr.push(value);
+        }
+        // console.log(Object.keys(value));
+    });
+    // Only change code above this line
+    return arr;
+}
 //
 // console.log(whatIsInAName([
 //     {
@@ -202,51 +198,51 @@ console.log(rot13("SERR CVMMN!"));
 
 // Search and Replace
 
-// function myReplace(str, before, after) {
-//     var b1 = before.charAt(0);
-//     var a1 = after.charAt(0);
-//     if (b1 !== before.charAt(0).toLowerCase()) {
-//         after = after.split('');
-//         after[0] = after[0].toUpperCase();
-//         after = after.join('');
-//     }
-//     return str.replace(before, after);
-// }
+function myReplace(str, before, after) {
+    var b1 = before.charAt(0);
+    var a1 = after.charAt(0);
+    if (b1 !== before.charAt(0).toLowerCase()) {
+        after = after.split('');
+        after[0] = after[0].toUpperCase();
+        after = after.join('');
+    }
+    return str.replace(before, after);
+}
 //
 // console.log(myReplace('A quick brown fox Jumped over the lazy dog', 'Jumped', 'leaped'));
 
 // Pig Latin
 
-// function translatePigLatin(str) {
-//     var notIn = 'aeiou'.split('');
-//     var arr = str.split('');
-//     var isVowel = false;
-//     var isCons = false;
-//     var gotCons = false;
-//     while (true) {
-//         if (notIn.indexOf(str.charAt(0)) > -1) {
-//             isVowel = true;
-//         } else {
-//             isCons = true;
-//             gotCons = true;
-//         }
-//         if (isVowel && gotCons) {
-//             str += 'ay';
-//             break;
-//         }
-//         if (isVowel && !gotCons) {
-//             str += 'way';
-//             break;
-//         } else {
-//             str = str.substr(1) + arr[0];
-//             arr[0] = '';
-//             arr = arr.join('').split('');
-//         }
-//         isVowel = false;
-//         isCons = false;
-//     }
-//     return str;
-// }
+function translatePigLatin(str) {
+    var notIn = 'aeiou'.split('');
+    var arr = str.split('');
+    var isVowel = false;
+    var isCons = false;
+    var gotCons = false;
+    while (true) {
+        if (notIn.indexOf(str.charAt(0)) > -1) {
+            isVowel = true;
+        } else {
+            isCons = true;
+            gotCons = true;
+        }
+        if (isVowel && gotCons) {
+            str += 'ay';
+            break;
+        }
+        if (isVowel && !gotCons) {
+            str += 'way';
+            break;
+        } else {
+            str = str.substr(1) + arr[0];
+            arr[0] = '';
+            arr = arr.join('').split('');
+        }
+        isVowel = false;
+        isCons = false;
+    }
+    return str;
+}
 //
 // console.log('Should be: aliforniacay', 'got: ' + translatePigLatin('california'));
 // console.log('Should be: aragraphspay', 'got: ' + translatePigLatin('paragraphs'));
@@ -256,51 +252,51 @@ console.log(rot13("SERR CVMMN!"));
 
 // DNA Pairing
 
-// function pairElement(str) {
-//     var arr = str.split('');
-//     var ret = [];
-//     arr.forEach(function (elem) {
-//         let pair = [elem];
-//         switch (elem) {
-//             case 'A':
-//                 pair.push('T');
-//                 break;
-//             case 'T':
-//                 pair.push('A');
-//                 break;
-//             case 'C':
-//                 pair.push('G');
-//                 break;
-//             case 'G':
-//                 pair.push('C');
-//                 break;
-//             default:
-//                 break;
-//         }
-//         console.log(pair);
-//         ret.push(pair);
-//     });
-//     return ret;
-// }
+function pairElement(str) {
+    var arr = str.split('');
+    var ret = [];
+    arr.forEach(function(elem) {
+        let pair = [elem];
+        switch (elem) {
+            case 'A':
+                pair.push('T');
+                break;
+            case 'T':
+                pair.push('A');
+                break;
+            case 'C':
+                pair.push('G');
+                break;
+            case 'G':
+                pair.push('C');
+                break;
+            default:
+                break;
+        }
+        console.log(pair);
+        ret.push(pair);
+    });
+    return ret;
+}
 //
 // console.log('Should be: [["A","T"],["T","A"],["C","G"],["G","C"],["A","T"]]',
 //     '\ngot: ' + pairElement('ATCGA'));
 
 // Missing letters
 
-// function fearNotLetter(str) {
-//     let arr = str.split('');
-//     var pos = arr[0].charCodeAt(0);
-//     var ret = undefined;
-//     arr.forEach(function (value) {
-//         if (pos === value.charCodeAt(0)) {
-//             pos += 1;
-//         } else {
-//             ret = String.fromCharCode(pos);
-//         }
-//     });
-//     return ret;
-// }
+function fearNotLetter(str) {
+    let arr = str.split('');
+    var pos = arr[0].charCodeAt(0);
+    var ret = undefined;
+    arr.forEach(function(value) {
+        if (pos === value.charCodeAt(0)) {
+            pos += 1;
+        } else {
+            ret = String.fromCharCode(pos);
+        }
+    });
+    return ret;
+}
 //
 // console.log('Should be: d', 'got: ' + fearNotLetter('abce'));
 // console.log('Should be: i', 'got: ' + fearNotLetter('abcdefghjklmno'));
@@ -309,10 +305,10 @@ console.log(rot13("SERR CVMMN!"));
 
 // Boo who
 
-// function booWho(bool) {
-//     // What is the new fad diet for ghost developers? The Boolean.
-//     return bool === true || bool === false;
-// }
+function booWho(bool) {
+    // What is the new fad diet for ghost developers? The Boolean.
+    return bool === true || bool === false;
+}
 //
 // console.log('Should be: true', 'got: ' + booWho(true));
 // console.log('Should be: true', 'got: ' + booWho(false));
@@ -321,62 +317,62 @@ console.log(rot13("SERR CVMMN!"));
 
 // Sonic Boom
 
-// function uniteUnique() {
-//     var arr = [];
-//     for (var i = 0; i < arguments.length; i++) {
-//         var arr2 = arguments[i];
-//         arr2.forEach(function (value) {
-//             if (arr.indexOf(value) < 0) {
-//                 arr.push(value)
-//             }
-//         });
-//     }
-//     return arr;
-// }
+function uniteUnique() {
+    var arr = [];
+    for (var i = 0; i < arguments.length; i++) {
+        var arr2 = arguments[i];
+        arr2.forEach(function(value) {
+            if (arr.indexOf(value) < 0) {
+                arr.push(value)
+            }
+        });
+    }
+    return arr;
+}
 //
 // console.log('Should be: [1, 3, 2, 5, 4]', 'got: ' + uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]));
 
 // Convert HTML Entities
 
-// function convertHTML(str) {
-//     // &colon;&rpar;
-//     var regex = new RegExp('&', 'g');
-//     str = str.replace(regex, '&​amp;');
-//     regex = new RegExp('<', 'g');
-//     str = str.replace(regex, '&​lt;');
-//     regex = new RegExp('>', 'g');
-//     str = str.replace(regex, '&gt;');
-//     regex = new RegExp('"', 'g');
-//     str = str.replace(regex, '&​quot;');
-//     regex = new RegExp('\'', 'g');
-//     str = str.replace(regex, '&​apos;');
-//     return str;
-// }
+function convertHTML(str) {
+    // &colon;&rpar;
+    var regex = new RegExp('&', 'g');
+    str = str.replace(regex, '&​amp;');
+    regex = new RegExp('<', 'g');
+    str = str.replace(regex, '&​lt;');
+    regex = new RegExp('>', 'g');
+    str = str.replace(regex, '&gt;');
+    regex = new RegExp('"', 'g');
+    str = str.replace(regex, '&​quot;');
+    regex = new RegExp('\'', 'g');
+    str = str.replace(regex, '&​apos;');
+    return str;
+}
 //
 // console.log('Should be: Dolce &​amp; Gabbana', 'got: ' + convertHTML("Dolce & Gabbana"));
 // console.log('Should be: Hamburgers &​lt; Pizza &​lt; Tacos', 'got: ' + convertHTML("Hamburgers < Pizza < Tacos"));
 
 // Spinal Tap Case
-// function spinalCase(str) {
-//     // "It's such a fine line between stupid, and clever."
-//     // --David St. Hubbins
-//     var regex = new RegExp('[^a-zA-Z]', 'g');
-//     str = str.replace(regex, ' ');
-//     regex = new RegExp('[A-Z]', 'g');
-//     while (str.search(regex) >= 0) {
-//         str = str.substr(0, str.search(regex)) +
-//         ' ' +
-//         str.substr(str.search(regex), 1).toLowerCase() +
-//         str.substr(str.search(regex) + 1);
-//         console.log(str);
-//     }
-//     regex = new RegExp('  ', 'g');
-//     str = str.replace(regex, ' ');
-//
-//     regex = new RegExp(' ', 'g');
-//     str = str.trim().replace(regex, '-');
-//     return str.toLowerCase();
-// }
+function spinalCase(str) {
+    // "It's such a fine line between stupid, and clever."
+    // --David St. Hubbins
+    var regex = new RegExp('[^a-zA-Z]', 'g');
+    str = str.replace(regex, ' ');
+    regex = new RegExp('[A-Z]', 'g');
+    while (str.search(regex) >= 0) {
+        str = str.substr(0, str.search(regex)) +
+            ' ' +
+            str.substr(str.search(regex), 1).toLowerCase() +
+            str.substr(str.search(regex) + 1);
+        console.log(str);
+    }
+    regex = new RegExp('  ', 'g');
+    str = str.replace(regex, ' ');
+
+    regex = new RegExp(' ', 'g');
+    str = str.trim().replace(regex, '-');
+    return str.toLowerCase();
+}
 //
 // console.log('Should be: this-is-spinal-tap', 'got: ' + spinalCase('thisIsSpinalTap'));
 // console.log('Should be: the-andy-griffith-show', 'got: ' + spinalCase('The_Andy_Griffith_Show'));
@@ -384,23 +380,23 @@ console.log(rot13("SERR CVMMN!"));
 
 // Sum All Odd Fibonacci Numbers
 
-// function sumFibs(num) {
-//     var value = 0;
-//     var fib = 1;
-//     var aux = 0;
-//     var ret = 0;
-//     while (fib <= num) {
-//         if (fib % 2 !== 0) {
-//             ret += fib;
-//         }
-//         aux = fib;
-//         fib = fib + value;
-//         value = aux;
-//     }
-//     return ret;
-// }
-//
-// console.log('Should be: 1785', 'got: ' + sumFibs(1000));
+function sumFibs(num) {
+    var value = 0;
+    var fib = 1;
+    var aux = 0;
+    var ret = 0;
+    while (fib <= num) {
+        if (fib % 2 !== 0) {
+            ret += fib;
+        }
+        aux = fib;
+        fib = fib + value;
+        value = aux;
+    }
+    return ret;
+}
+
+console.log('Should be: 1785', 'got: ' + sumFibs(1000));
 
 // Sum All Primes
 function isPrime(n) {
@@ -415,17 +411,17 @@ function isPrime(n) {
     }
     return true;
 }
-//
-// function sumPrimes(num) {
-//     console.log('sumPrimes');
-//     var ret = 0;
-//     for (var i = 0; i <= num; i++) {
-//         if (isPrime(i)) {
-//             ret += i;
-//         }
-//     }
-//     return ret;
-// }
+
+function sumPrimes(num) {
+    console.log('sumPrimes');
+    var ret = 0;
+    for (var i = 0; i <= num; i++) {
+        if (isPrime(i)) {
+            ret += i;
+        }
+    }
+    return ret;
+}
 
 // console.log(isPrime(2));
 // console.log('Should be: 73156', 'got: ' + sumPrimes(977));
@@ -472,7 +468,7 @@ function getPrimeFactors(num) {
     return ret;
 }
 
-function GCD(a,b) {
+function GCD(a, b) {
     var a1 = getPrimeFactors(a);
     var b1 = getPrimeFactors(b);
     var intersection = getIntersections(a1, b1);
@@ -480,14 +476,15 @@ function GCD(a,b) {
         return intersection[0];
     } else {
         var ret = 1;
-        intersection.forEach(function (value) {
+        intersection.forEach(function(value) {
             ret *= value;
         });
         return ret;
     }
 }
-function LCM(a,b) {
-    return (a * b) / GCD(a,b);
+
+function LCM(a, b) {
+    return (a * b) / GCD(a, b);
 }
 
 function getLMC(arr) {
