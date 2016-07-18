@@ -577,15 +577,15 @@ function steamrollArray(arr) {
     return arrRet;
 }
 
-console.log('Should be: [1, 3, 4]', 'got: ', steamrollArray([1, [], [3, [[4]]]]));
-console.log('Should be: [1, 2, 3, 4]', 'got: ', steamrollArray([1, [2], [3, [[4]]]]));
-console.log('Should be: ["a", "b"]', 'got: ',  steamrollArray([
-    [
-        ["a"]
-    ],
-    [
-        ["b"]
-    ]
-]));
+// console.log('Should be: [1, 3, 4]', 'got: ', steamrollArray([1, [], [3, [[4]]]]));
+// console.log('Should be: [1, 2, 3, 4]', 'got: ', steamrollArray([1, [2], [3, [[4]]]]));
+// console.log('Should be: ["a", "b"]', 'got: ',  steamrollArray([
+//     [
+//         ["a"]
+//     ],
+//     [
+//         ["b"]
+//     ]
+// ]));
 
 /* jshint ignore: end */
