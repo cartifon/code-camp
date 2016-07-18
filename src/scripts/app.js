@@ -606,17 +606,54 @@ function binaryAgent(str) {
 function truthCheck(collection, pre) {
     var hasProp = true;
     collection.forEach(function(value) {
-        if(!hasCollection(value, pre)) {
+        if (!hasCollection(value, pre)) {
             hasProp = false;
         }
     });
     return hasProp;
 }
 
-function hasCollection(item, collection){
+function hasCollection(item, collection) {
     return item[collection];
 }
 
 // console.log('Should be: true', 'got: ', truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy", "sex": "male"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex"));
 // console.log('Should be: false', 'got: ', truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex"));
+
+// Arguments Optional
+
+function addTogether() {
+    var checkNumber = function(num) {
+        if (typeof num !== 'number') {
+            return undefined;
+        } else return num;
+    };
+    var arg1 = arguments[0];
+    var arg2 = arguments[1];
+    if(arg1 && arg2){
+        if(checkNumber(arg1) && checkNumber(arg2)) {
+            return arg1 + arg2;
+        } else {
+            return undefined;
+        }
+    } else {
+        if (checkNumber(arg1)) {
+            return function (arg2) {
+                if (!checkNumber(arg2)) {
+                    return undefined;
+                }
+                return arg1 + arg2;
+            };
+        } else {
+            return undefined;
+        }
+    }
+}
+
+// console.log('Should be: 5', 'got: ', addTogether(2, 3));
+// console.log('Should be: 5', 'got: ', addTogether(2)(3));
+// console.log('Should be: undefined', 'got: ', addTogether("http://bit.ly/IqT6zt"));
+// console.log('Should be: undefined', 'got: ', addTogether(2, "3"));
+// console.log('Should be: undefined', 'got: ', addTogether(2)([3]));
+
 /* jshint ignore: end */
