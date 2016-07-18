@@ -396,7 +396,7 @@ function sumFibs(num) {
     return ret;
 }
 
-console.log('Should be: 1785', 'got: ' + sumFibs(1000));
+// console.log('Should be: 1785', 'got: ' + sumFibs(1000));
 
 // Sum All Primes
 function isPrime(n) {
@@ -525,4 +525,26 @@ function findElement(arr, func) {
 //     findElement([1, 2, 3, 4], function(num) {
 //         return num % 2 === 0;
 //     }));
+
+// Drop it
+
+function dropElements(arr, func) {
+    var newArray = [];
+    var gotTrue = false;
+    arr.forEach(function (value) {
+        if (func(value)) {
+            gotTrue = true;
+        }
+        if (gotTrue) {
+            newArray.push(value);
+        }
+    });
+    // Drop them elements.
+    return newArray;
+}
+
+console.log('Should be: [3, 4]', 'got: ' + dropElements([1, 2, 3, 4], function(n) {return n >= 3;}));
+console.log('Should be: [1, 0, 1]', 'got: ' + dropElements([0, 1, 0, 1], function(n) {return n === 1;}));
+console.log('Should be: [3, 9, 2]', 'got: ' + dropElements([1, 2, 3, 9, 2], function(n) {return n > 2;}));
+
 /* jshint ignore: end */
