@@ -630,15 +630,15 @@ function addTogether() {
     };
     var arg1 = arguments[0];
     var arg2 = arguments[1];
-    if(arg1 && arg2){
-        if(checkNumber(arg1) && checkNumber(arg2)) {
+    if (arg1 && arg2) {
+        if (checkNumber(arg1) && checkNumber(arg2)) {
             return arg1 + arg2;
         } else {
             return undefined;
         }
     } else {
         if (checkNumber(arg1)) {
-            return function (arg2) {
+            return function(arg2) {
                 if (!checkNumber(arg2)) {
                     return undefined;
                 }
@@ -656,4 +656,45 @@ function addTogether() {
 // console.log('Should be: undefined', 'got: ', addTogether(2, "3"));
 // console.log('Should be: undefined', 'got: ', addTogether(2)([3]));
 
+// Validate US Telephone Numbers
+
+function telephoneCheck(str) {
+    // Good luck!
+    var re = /^1?[\(\s]*[0-9]{3}[-\)\s]*[0-9]{3}[-\s]?[0-9]{4}$/;
+    var hasOpen = /[\(]/;
+    var hasClose = /[\)]/;
+    if(hasOpen.test(str) && !hasClose.test(str) ||
+        !hasOpen.test(str) && hasClose.test(str)) {
+        return false;
+    }
+    return re.test(str);
+}
+
+// console.log('Should be: true', 'got: ', telephoneCheck("555-555-5555"));
+// console.log('Should be: true', 'got: ', telephoneCheck("1 555-555-5555"));
+// console.log('Should be: true', 'got: ', telephoneCheck("1 (555) 555-5555"));
+// console.log('Should be: true', 'got: ', telephoneCheck("5555555555"));
+// console.log('Should be: true', 'got: ', telephoneCheck("555-555-5555"));
+// console.log('Should be: true', 'got: ', telephoneCheck("(555)555-5555"));
+// console.log('Should be: true', 'got: ', telephoneCheck("1(555)555-5555"));
+// console.log('Should be: false', 'got: ', telephoneCheck("5555555"));
+// console.log('Should be: true', 'got: ', telephoneCheck("1 555 555 5555"));
+// console.log('Should be: true', 'got: ', telephoneCheck("1 456 789 4444"));
+// console.log('Should be: false', 'got: ', telephoneCheck("555-5555"));
+// console.log('Should be: false', 'got: ', telephoneCheck("1 555)555-5555"));
+// console.log('Should be: false', 'got: ', telephoneCheck("123**&!!asdf#"));
+// console.log('Should be: false', 'got: ', telephoneCheck("2 757 622-7382"));
+// console.log('Should be: false', 'got: ', telephoneCheck("55555555"));
+// console.log('Should be: false', 'got: ', telephoneCheck("(6505552368)"));
+// console.log('Should be: false', 'got: ', telephoneCheck("2 (757) 622-7382"));
+// console.log('Should be: false', 'got: ', telephoneCheck("0 (757) 622-7382"));
+// console.log('Should be: false', 'got: ', telephoneCheck("-1 (757) 622-7382"));
+// console.log('Should be: false', 'got: ', telephoneCheck("10 (757) 622-7382"));
+// console.log('Should be: false', 'got: ', telephoneCheck("27576227382"));
+// console.log('Should be: false', 'got: ', telephoneCheck("(275)76227382"));
+// console.log('Should be: false', 'got: ', telephoneCheck("2(757)6227382"));
+// console.log('Should be: false', 'got: ', telephoneCheck("2(757)622-7382"));
+// console.log('Should be: false', 'got: ', telephoneCheck("555)-555-5555"));
+// console.log('Should be: false', 'got: ', telephoneCheck("(555-555-5555"));
+// console.log('Should be: false', 'got: ', telephoneCheck("(555)5(55?)-5555"));
 /* jshint ignore: end */
