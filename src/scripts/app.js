@@ -514,4 +514,15 @@ function smallestCommons(arr) {
 // console.log('Should be: 360360', 'got: ' + smallestCommons([1, 13]));
 // console.log('Should be: 6056820', 'got: ' + smallestCommons([23, 18]));
 
+// Finders Keepers
+
+function findElement(arr, func) {
+    var ret = arr.filter(func);
+    return ret[0];
+}
+
+// console.log('Should be: 2', 'got: ' +
+//     findElement([1, 2, 3, 4], function(num) {
+//         return num % 2 === 0;
+//     }));
 /* jshint ignore: end */
