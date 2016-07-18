@@ -555,10 +555,10 @@ function steamrollArray(arr) {
     var arrTemp = arr;
     while (isArray) {
         isArray = false;
-        arrTemp.forEach(function (value) {
+        arrTemp.forEach(function(value) {
             if (Array.isArray(value)) {
                 isArray = true;
-                if(value.length > 1) {
+                if (value.length > 1) {
                     if (value[0]) arrRet.push(value[0]);
                     var temp = value.splice(1);
                     arrRet.push(temp);
@@ -593,7 +593,7 @@ function steamrollArray(arr) {
 function binaryAgent(str) {
     var arr = str.split(' ');
     var ret = '';
-    arr.forEach(function (value) {
+    arr.forEach(function(value) {
         ret += String.fromCharCode(parseInt(value, 2));
     });
     return ret;
@@ -601,4 +601,22 @@ function binaryAgent(str) {
 
 // console.log('Should be: "Aren\'t bonfires fun!?" ', 'got: ', binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111"));
 
+// Everything Be True
+
+function truthCheck(collection, pre) {
+    var hasProp = true;
+    collection.forEach(function(value) {
+        if(!hasCollection(value, pre)) {
+            hasProp = false;
+        }
+    });
+    return hasProp;
+}
+
+function hasCollection(item, collection){
+    return item[collection];
+}
+
+// console.log('Should be: true', 'got: ', truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy", "sex": "male"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex"));
+// console.log('Should be: false', 'got: ', truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex"));
 /* jshint ignore: end */
