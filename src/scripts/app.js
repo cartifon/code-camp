@@ -531,7 +531,7 @@ function findElement(arr, func) {
 function dropElements(arr, func) {
     var newArray = [];
     var gotTrue = false;
-    arr.forEach(function (value) {
+    arr.forEach(function(value) {
         if (func(value)) {
             gotTrue = true;
         }
@@ -543,8 +543,49 @@ function dropElements(arr, func) {
     return newArray;
 }
 
-console.log('Should be: [3, 4]', 'got: ' + dropElements([1, 2, 3, 4], function(n) {return n >= 3;}));
-console.log('Should be: [1, 0, 1]', 'got: ' + dropElements([0, 1, 0, 1], function(n) {return n === 1;}));
-console.log('Should be: [3, 9, 2]', 'got: ' + dropElements([1, 2, 3, 9, 2], function(n) {return n > 2;}));
+// console.log('Should be: [3, 4]', 'got: ' + dropElements([1, 2, 3, 4], function(n) {return n >= 3;}));
+// console.log('Should be: [1, 0, 1]', 'got: ' + dropElements([0, 1, 0, 1], function(n) {return n === 1;}));
+// console.log('Should be: [3, 9, 2]', 'got: ' + dropElements([1, 2, 3, 9, 2], function(n) {return n > 2;}));
+
+// Steamroller
+
+function steamrollArray(arr) {
+    var isArray = true;
+    var arrRet = [];
+    var arrTemp = arr;
+    while (isArray) {
+        isArray = false;
+        arrTemp.forEach(function (value) {
+            if (Array.isArray(value)) {
+                isArray = true;
+                if(value.length > 1) {
+                    if (value[0]) arrRet.push(value[0]);
+                    var temp = value.splice(1);
+                    arrRet.push(temp);
+                } else {
+                    if (value[0]) arrRet.push(value[0]);
+                }
+            } else {
+                if (value) arrRet.push(value);
+            }
+        });
+        if (isArray) {
+            arrTemp = arrRet;
+            arrRet = [];
+        }
+    }
+    return arrRet;
+}
+
+console.log('Should be: [1, 3, 4]', 'got: ', steamrollArray([1, [], [3, [[4]]]]));
+console.log('Should be: [1, 2, 3, 4]', 'got: ', steamrollArray([1, [2], [3, [[4]]]]));
+console.log('Should be: ["a", "b"]', 'got: ',  steamrollArray([
+    [
+        ["a"]
+    ],
+    [
+        ["b"]
+    ]
+]));
 
 /* jshint ignore: end */
