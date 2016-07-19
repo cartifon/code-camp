@@ -835,4 +835,43 @@ function sum(data, value, arr) {
 // console.log('Should be: "Closed"', 'got:', checkCashRegister(19.50, 20.00, [["PENNY", 0.50], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]));
 // console.log('Should be: "Closed"', 'got:', checkCashRegister(19.50, 20.00, [["PENNY", 0.50], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]));
 
+// Inventory Update
+
+function updateInventory(arr1, arr2) {
+    arr2.forEach(function(value2) {
+        sum2(value2[1], value2[0], arr1);
+    });
+    return arr1.sort(sortArray);
+}
+function sortArray(a, b) {
+    return a[1] > b[1];
+}
+function sum2(data, value, arr) {
+    var found = false;
+    arr.forEach(function(a) {
+        if (a[1] === data) {
+            found = true;
+            a[0] = a[0] + value;
+        }
+    });
+    if (!found) {
+        arr.push([value, data]);
+    }
+}
+// Example inventory lists
+var curInv = [
+    [21, "Bowling Ball"],
+    [2, "Dirty Sock"],
+    [1, "Hair Pin"],
+    [5, "Microphone"]
+];
+
+var newInv = [
+    [2, "Hair Pin"],
+    [3, "Half-Eaten Apple"],
+    [67, "Bowling Ball"],
+    [7, "Toothpaste"]
+];
+
+console.log('Should be: "Closed"', 'got:', updateInventory(curInv, newInv));
 /* jshint ignore: end */
