@@ -732,4 +732,107 @@ function diffArrayWithoutDuplicates(arr1, arr2) {
 // console.log('Should be: [3, 4, 5]', 'got:', sym([1, 2, 3], [5, 2, 1, 4]));
 // console.log('Should be: [1, 4, 5]', 'got:', sym([1, 1, 2, 5], [2, 2, 3, 5], [3, 4, 5, 5]));
 
+// Exact Change
+
+const PENNY = 0.01;
+const NICKEL = 0.05;
+const DIME = 0.10;
+const QUARTER = 0.25;
+const ONE = 1.00;
+const FIVE = 5.00;
+const TEN = 10.00;
+const TWENTY = 20.00;
+const ONE_HUNDRED = 100.00;
+
+function checkCashRegister(price, cash, cid) {
+    var change = cash - price;
+    var pack = [];
+    var ret = '';
+    while (change > 0) {
+        if (change >= ONE_HUNDRED && cid[8][1] >= ONE_HUNDRED) {
+            sum("ONE HUNDRED", ONE_HUNDRED, pack);
+            change = change - ONE_HUNDRED;
+            cid[8][1] -= ONE_HUNDRED;
+            cid[8][1] = Number(cid[8][1].toFixed(2));
+        } else if (change >= TWENTY && cid[7][1] >= TWENTY) {
+            sum("TWENTY", TWENTY, pack);
+            change = change - TWENTY;
+            cid[7][1] -= TWENTY;
+            cid[7][1] = Number(cid[7][1].toFixed(2));
+        } else if (change >= TEN && cid[6][1] >= TEN) {
+            sum("TEN", TEN, pack);
+            change = change - TEN;
+            cid[6][1] -= TEN;
+            cid[6][1] = Number(cid[6][1].toFixed(2));
+        } else if (change >= FIVE && cid[5][1] >= FIVE) {
+            sum("FIVE", FIVE, pack);
+            change = change - FIVE;
+            cid[5][1] -= FIVE;
+            cid[5][1] = Number(cid[5][1].toFixed(2));
+        } else if (change >= ONE && cid[4][1] >= ONE) {
+            sum("ONE", ONE, pack);
+            change = change - ONE;
+            cid[4][1] -= ONE;
+            cid[4][1] = Number(cid[4][1].toFixed(2));
+        } else if (change >= QUARTER && cid[3][1] >= QUARTER) {
+            sum("QUARTER", QUARTER, pack);
+            change = change - QUARTER;
+            cid[3][1] -= QUARTER;
+            cid[3][1] = Number(cid[3][1].toFixed(2));
+        } else if (change >= DIME && cid[2][1] >= DIME) {
+            sum("DIME", DIME, pack);
+            change = change - DIME;
+            cid[2][1] -= DIME;
+            cid[2][1] = Number(cid[2][1].toFixed(2));
+        } else if (change >= NICKEL && cid[1][1] >= NICKEL) {
+            sum("NICKEL", NICKEL, pack);
+            change = change - NICKEL;
+            cid[1][1] -= NICKEL;
+            cid[1][1] = Number(cid[2][1].toFixed(2));
+        } else if (change >= PENNY && cid[0][1] >= PENNY) {
+            sum("PENNY", PENNY, pack);
+            change = change - PENNY;
+            cid[0][1] -= PENNY;
+            cid[0][1] = Number(cid[0][1].toFixed(2));
+        } else {
+            return "Insufficient Funds";
+        }
+        change = change.toFixed(2);
+    }
+    // Here is your change, ma'am.
+    if (isClosed(cid)) {
+        return "Closed";
+    } else {
+        return pack;
+    }
+}
+
+function isClosed(arr) {
+    var ret = true;
+    arr.forEach(function(a) {
+        if (a[1] > 0) {
+            ret = false;
+        }
+    });
+    return ret;
+}
+
+function sum(data, value, arr) {
+    var found = false;
+    arr.forEach(function(a) {
+        if (a[0] === data) {
+            found = true;
+            a[1] = a[1] + value;
+            a[1] = Number(a[1].toFixed(2));
+        }
+    });
+    if (!found) {
+        arr.push([data, value]);
+    }
+}
+
+// console.log('Should be: [["QUARTER", 0.50]]', 'got:', checkCashRegister(19.50, 20.00, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.10], ["QUARTER", 4.25], ["ONE", 90.00], ["FIVE", 55.00], ["TEN", 20.00], ["TWENTY", 60.00], ["ONE HUNDRED", 100.00]]));
+// console.log('Should be: "Closed"', 'got:', checkCashRegister(19.50, 20.00, [["PENNY", 0.50], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]));
+// console.log('Should be: "Closed"', 'got:', checkCashRegister(19.50, 20.00, [["PENNY", 0.50], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]));
+
 /* jshint ignore: end */
