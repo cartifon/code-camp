@@ -729,7 +729,7 @@ function diffArrayWithoutDuplicates(arr1, arr2) {
     return newArr;
 }
 
-console.log('Should be: [3, 4, 5]', 'got:', sym([1, 2, 3], [5, 2, 1, 4]));
-console.log('Should be: [1, 4, 5]', 'got:', sym([1, 1, 2, 5], [2, 2, 3, 5], [3, 4, 5, 5]));
+// console.log('Should be: [3, 4, 5]', 'got:', sym([1, 2, 3], [5, 2, 1, 4]));
+// console.log('Should be: [1, 4, 5]', 'got:', sym([1, 1, 2, 5], [2, 2, 3, 5], [3, 4, 5, 5]));
 
 /* jshint ignore: end */
