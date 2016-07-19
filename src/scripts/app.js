@@ -663,7 +663,7 @@ function telephoneCheck(str) {
     var re = /^1?[\(\s]*[0-9]{3}[-\)\s]*[0-9]{3}[-\s]?[0-9]{4}$/;
     var hasOpen = /[\(]/;
     var hasClose = /[\)]/;
-    if(hasOpen.test(str) && !hasClose.test(str) ||
+    if (hasOpen.test(str) && !hasClose.test(str) ||
         !hasOpen.test(str) && hasClose.test(str)) {
         return false;
     }
@@ -697,4 +697,39 @@ function telephoneCheck(str) {
 // console.log('Should be: false', 'got: ', telephoneCheck("555)-555-5555"));
 // console.log('Should be: false', 'got: ', telephoneCheck("(555-555-5555"));
 // console.log('Should be: false', 'got: ', telephoneCheck("(555)5(55?)-5555"));
+
+// Symmetric Difference
+
+function sym() {
+    var count = 0;
+    var arrTemp = [];
+    while (count < arguments.length) {
+        arrTemp = diffArrayWithoutDuplicates(arrTemp, arguments[count]);
+        count++;
+    }
+    return arrTemp.sort();
+}
+
+function diffArrayWithoutDuplicates(arr1, arr2) {
+    var newArr = [];
+    arr1.forEach(function(arr) {
+        if (arr2.indexOf(arr) < 0) {
+            if (newArr.indexOf(arr) < 0) {
+                newArr.push(arr);
+            }
+        }
+    });
+    arr2.forEach(function(arr) {
+        if (arr1.indexOf(arr) < 0) {
+            if (newArr.indexOf(arr) < 0) {
+                newArr.push(arr);
+            }
+        }
+    });
+    return newArr;
+}
+
+console.log('Should be: [3, 4, 5]', 'got:', sym([1, 2, 3], [5, 2, 1, 4]));
+console.log('Should be: [1, 4, 5]', 'got:', sym([1, 1, 2, 5], [2, 2, 3, 5], [3, 4, 5, 5]));
+
 /* jshint ignore: end */
