@@ -843,9 +843,11 @@ function updateInventory(arr1, arr2) {
     });
     return arr1.sort(sortArray);
 }
+
 function sortArray(a, b) {
     return a[1] > b[1];
 }
+
 function sum2(data, value, arr) {
     var found = false;
     arr.forEach(function(a) {
@@ -873,5 +875,48 @@ var newInv = [
     [7, "Toothpaste"]
 ];
 
-console.log('Should be: "Closed"', 'got:', updateInventory(curInv, newInv));
+// console.log('Should be: "Closed"', 'got:', updateInventory(curInv, newInv));
+
+// No repeats please
+var permArr = [],
+usedChars = [];
+function permAlone(str) {
+    // If the length is 1, there can be only one possibility
+    permArr = [ ];
+    usedChars = [];
+    var perm = permute(str.split(''));
+    var regex = /([a-z])\1/i;
+    var ret = 0;
+    perm.forEach(function (value) {
+        var temp = value.join('');
+        if(!regex.test(temp)) {
+            ret ++;
+        }
+    });
+    return ret;
+}
+
+function permute(input) {
+    var i, temp;
+    for (i = 0; i < input.length; i++) {
+        temp = input.splice(i, 1)[0];
+        usedChars.push(temp);
+        if (input.length === 0) {
+            permArr.push(usedChars.slice());
+        }
+        permute(input);
+        input.splice(i, 0, temp);
+        usedChars.pop();
+    }
+    return permArr;
+}
+
+console.log('Should be: 1', 'got:', permAlone('a'));
+console.log('Should be: 2', 'got:', permAlone('aab'));
+console.log('Should be: 0', 'got:', permAlone('zzzzzzzz'));
+console.log('Should be: 0', 'got:', permAlone('aaab'));
+console.log('Should be: 12', 'got:', permAlone('aaabb'));
+console.log('Should be: 3600', 'got:', permAlone('abcdefa'));
+console.log('Should be: 2640', 'got:', permAlone('abfdefa'));
+
 /* jshint ignore: end */
